@@ -38,5 +38,8 @@ func (a *encnone) IVLen() int {
 }
 
 func init() {
+	if registredEncrypters == nil {
+		registredEncrypters = make(map[string]newEncrypterFunc)
+	}
 	registredEncrypters["none"] = newEncNone
 }

@@ -87,5 +87,8 @@ func (a *aescbchmac) IVLen() int {
 }
 
 func init() {
+	if registredEncrypters == nil {
+		registredEncrypters = make(map[string]newEncrypterFunc)
+	}
 	registredEncrypters["aescbchmac"] = newAesCbcHmac
 }
